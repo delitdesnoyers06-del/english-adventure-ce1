@@ -1,4 +1,6 @@
 /** @type {import('@playwright/test').PlaywrightTestConfig} */
+const { devices } = require('@playwright/test');
+
 const config = {
   // Test directory
   testDir: './tests',
