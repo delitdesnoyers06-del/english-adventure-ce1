@@ -1,9 +1,7 @@
-name: Build, Test, and Deploy to GitHub Pages
+name: Build and Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
-  pull_request:
     branches: ["main"]
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -44,7 +42,7 @@ jobs:
 
   deploy:
     needs: build
-    if: github.event_name != 'pull_request' && success()
+    if: success()
     runs-on: ubuntu-latest
     environment:
       name: github-pages
