@@ -29,13 +29,11 @@ jobs:
         env:
           NODE_ENV: development
 
-      - name: Start HTTP server
-        run: |
-          npx http-server dist -p 5173 &
-          sleep 5
+      - name: Make test script executable
+        run: chmod +x tests/run-tests.sh
 
-      - name: Run Playwright tests
-        run: npx playwright test
+      - name: Run tests
+        run: tests/run-tests.sh
         env:
           CI: true
 
