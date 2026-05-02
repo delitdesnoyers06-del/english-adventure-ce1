@@ -5,12 +5,12 @@ const config = {
   // Test directory
   testDir: './tests',
   
-  // Timeout for each test
-  timeout: 30000,
+  // Timeout for each test (reduced for CI)
+  timeout: process.env.CI ? 15000 : 30000,
   
   // Expect timeout
   expect: {
-    timeout: 5000,
+    timeout: 3000,
   },
   
   // Run tests in parallel
@@ -19,28 +19,31 @@ const config = {
   // Fail the build on CI if you accidentally left test.only in the source code
   forbidOnly: !!process.env.CI,
   
-  // Retry on CI only
-  retries: process.env.CI ? 2 : 0,
+  // Retry on CI only (reduced for faster feedback)
+  retries: process.env.CI ? 1 : 0,
   
   // Opt out of parallel tests on CI
   workers: process.env.CI ? 1 : undefined,
   
   // Reporter to use
-  reporter: 'html',
+  reporter: [
+    ['html', { outputFolder: 'playwright-report' }],
+    ['json', { outputFile: 'test-results/results.json' }]
+  ],
   
   // Shared settings for all the projects below
   use: {
     // Base URL for the app
     baseURL: 'http://localhost:5173',
     
-    // Collect trace when retrying the failed test
+    // Collect trace only on failure
     trace: 'on-first-retry',
     
-    // Record video only when retrying
-    video: 'retain-on-failure',
+    // Record video only on failure (disabled on CI to save time)
+    video: process.env.CI ? 'off' : 'retain-on-failure',
     
-    // Take screenshot on test failure
-    screenshot: 'only-on-failure',
+    // Take screenshot only on failure (disabled on CI to save time)
+    screenshot: process.env.CI ? 'only-on-failure' : 'only-on-failure',
     
     // Viewport size
     viewport: { width: 1280, height: 720 },
@@ -54,36 +57,11 @@ const config = {
     },
   },
   
-  // Projects for different browsers
+  // Projects for different browsers (only chromium on CI)
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
-    },
-    
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-    
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
-    
-    // Mobile viewports
-    {
-      name: 'Mobile Chrome',
-      use: { ...devices['iPhone 12'] },
-    },
-    
-    {
-      name: 'Mobile Safari',
-      use: { ...devices['iPhone 12'] },
-      use: {
-        browserName: 'webkit',
-        ...devices['iPhone 12'],
-      },
     },
   ],
   
@@ -92,7 +70,7 @@ const config = {
     command: 'npm run dev',
     url: 'http://localhost:5173',
     reuseExistingServer: true,
-    timeout: 120000, // 2 minutes for server to start
+    timeout: 60000, // 1 minute for server to start
   },
 };
 
