@@ -3,6 +3,8 @@ name: Build, Test, and Deploy to GitHub Pages
 on:
   push:
     branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -28,7 +30,7 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
-        run: npm install --no-audit --no-fund --ignore-scripts
+        run: npm ci
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
@@ -37,12 +39,15 @@ jobs:
         run: npm run dev &
         env:
           CI: true
+          NODE_ENV: development
 
       - name: Wait for server to start
-        run: sleep 10
+        run: sleep 15
 
       - name: Run Playwright tests
         run: npx playwright test
+        env:
+          CI: true
 
       - name: Upload test results
         if: always()
@@ -54,7 +59,7 @@ jobs:
 
   build:
     needs: test
-    if: success()
+    if: success() || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -66,10 +71,12 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
-        run: npm install --no-audit --no-fund --ignore-scripts
+        run: npm ci
 
       - name: Build project
         run: npm run build
+        env:
+          NODE_ENV: production
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -78,6 +85,7 @@ jobs:
 
   deploy:
     needs: build
+    if: github.event_name != 'pull_request' && success()
     runs-on: ubuntu-latest
     environment:
       name: github-pages
