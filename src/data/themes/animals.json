@@ -1,0 +1,95 @@
+{
+  "theme": "animals",
+  "name": "Animaux",
+  "emoji": "🐶",
+  "description": "Apprends les animaux en anglais",
+  "color": "#4CAF50",
+  "words": [
+    {
+      "fr": "chat",
+      "en": "cat",
+      "audio": "audio/cat.mp3",
+      "image": "images/animals/cat.png"
+    },
+    {
+      "fr": "chien",
+      "en": "dog",
+      "audio": "audio/dog.mp3",
+      "image": "images/animals/dog.png"
+    },
+    {
+      "fr": "oiseau",
+      "en": "bird",
+      "audio": "audio/bird.mp3",
+      "image": "images/animals/bird.png"
+    },
+    {
+      "fr": "cochon",
+      "en": "pig",
+      "audio": "audio/pig.mp3",
+      "image": "images/animals/pig.png"
+    },
+    {
+      "fr": "vache",
+      "en": "cow",
+      "audio": "audio/cow.mp3",
+      "image": "images/animals/cow.png"
+    },
+    {
+      "fr": "mouton",
+      "en": "sheep",
+      "audio": "audio/sheep.mp3",
+      "image": "images/animals/sheep.png"
+    },
+    {
+      "fr": "cheval",
+      "en": "horse",
+      "audio": "audio/horse.mp3",
+      "image": "images/animals/horse.png"
+    },
+    {
+      "fr": "lapin",
+      "en": "rabbit",
+      "audio": "audio/rabbit.mp3",
+      "image": "images/animals/rabbit.png"
+    }
+  ],
+  "levels": [
+    {
+      "id": 1,
+      "type": "matching",
+      "title": "Trouve l'animal",
+      "description": "Associe chaque animal à son nom en anglais",
+      "pairs": [
+        {"word": "cat", "image": "images/animals/cat.png"},
+        {"word": "dog", "image": "images/animals/dog.png"},
+        {"word": "bird", "image": "images/animals/bird.png"}
+      ]
+    },
+    {
+      "id": 2,
+      "type": "audio_quiz",
+      "title": "Écoute et clique",
+      "description": "Écoute le mot et clique sur l'animal correspondant",
+      "questions": [
+        {"audio": "audio/cat.mp3", "options": ["cat", "dog", "pig", "cow"]},
+        {"audio": "audio/dog.mp3", "options": ["bird", "dog", "sheep", "horse"]},
+        {"audio": "audio/bird.mp3", "options": ["rabbit", "cat", "bird", "pig"]}
+      ]
+    },
+    {
+      "id": 3,
+      "type": "memory",
+      "title": "Mémoire des animaux",
+      "description": "Retourne les cartes pour trouver les paires",
+      "cards": [
+        {"type": "word", "value": "cat"},
+        {"type": "image", "value": "images/animals/cat.png"},
+        {"type": "word", "value": "dog"},
+        {"type": "image", "value": "images/animals/dog.png"},
+        {"type": "word", "value": "bird"},
+        {"type": "image", "value": "images/animals/bird.png"}
+      ]
+    }
+  ]
+}

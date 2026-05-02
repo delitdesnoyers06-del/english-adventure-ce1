@@ -1,0 +1,248 @@
+{
+  "levels": [
+    {
+      "id": 1,
+      "theme": "animals",
+      "name": "Île des Animaux",
+      "emoji": "🐶",
+      "description": "Découvre les animaux de la ferme et leurs noms en anglais.",
+      "color": "#4CAF50",
+      "unlocked": true,
+      "requirements": null,
+      "miniGames": [
+        {
+          "type": "matching",
+          "title": "Associe les animaux",
+          "description": "Fais glisser chaque mot vers l'animal correspondant.",
+          "difficulty": "easy",
+          "reward": {
+            "stars": 3,
+            "badge": "animal_expert"
+          }
+        },
+        {
+          "type": "audio_quiz",
+          "title": "Écoute et trouve",
+          "description": "Écoute le mot en anglais et clique sur l'image correcte.",
+          "difficulty": "medium",
+          "reward": {
+            "stars": 2,
+            "badge": null
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "theme": "colors",
+      "name": "Île des Couleurs",
+      "emoji": "🎨",
+      "description": "Apprends les couleurs en anglais avec des jeux interactifs.",
+      "color": "#FF9800",
+      "unlocked": false,
+      "requirements": {
+        "minStars": 5,
+        "previousLevel": 1
+      },
+      "miniGames": [
+        {
+          "type": "color_sort",
+          "title": "Trie les couleurs",
+          "description": "Classe les objets par couleur.",
+          "difficulty": "easy",
+          "reward": {
+            "stars": 3,
+            "badge": "color_master"
+          }
+        },
+        {
+          "type": "memory",
+          "title": "Mémoire des couleurs",
+          "description": "Retourne les cartes pour trouver les paires de couleurs.",
+          "difficulty": "medium",
+          "reward": {
+            "stars": 2,
+            "badge": null
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "theme": "numbers",
+      "name": "Île des Nombres",
+      "emoji": "123",
+      "description": "Compte et apprends les nombres de 1 à 20 en anglais.",
+      "color": "#E91E63",
+      "unlocked": false,
+      "requirements": {
+        "minStars": 8,
+        "previousLevel": 2
+      },
+      "miniGames": [
+        {
+          "type": "counting",
+          "title": "Compte les objets",
+          "description": "Compte le nombre d'objets et sélectionne la bonne réponse.",
+          "difficulty": "easy",
+          "reward": {
+            "stars": 3,
+            "badge": "math_genius"
+          }
+        },
+        {
+          "type": "sequence",
+          "title": "Séquence de nombres",
+          "description": "Complète la séquence de nombres manquants.",
+          "difficulty": "hard",
+          "reward": {
+            "stars": 3,
+            "badge": "sequence_pro"
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "theme": "family",
+      "name": "Île de la Famille",
+      "emoji": "👨‍👩‍👧‍👦",
+      "description": "Découvre les membres de la famille et leurs noms en anglais.",
+      "color": "#9C27B0",
+      "unlocked": false,
+      "requirements": {
+        "minStars": 11,
+        "previousLevel": 3
+      },
+      "miniGames": [
+        {
+          "type": "matching",
+          "title": "Qui est qui ?",
+          "description": "Associe chaque membre de la famille à son nom.",
+          "difficulty": "easy",
+          "reward": {
+            "stars": 2,
+            "badge": "family_expert"
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "theme": "clothes",
+      "name": "Île des Vêtements",
+      "emoji": "👕",
+      "description": "Apprends le vocabulaire des vêtements en anglais.",
+      "color": "#00BCD4",
+      "unlocked": false,
+      "requirements": {
+        "minStars": 14,
+        "previousLevel": 4
+      },
+      "miniGames": [
+        {
+          "type": "find_intruder",
+          "title": "Trouve l'intrus",
+          "description": "Trouve le vêtement qui ne correspond pas à la catégorie.",
+          "difficulty": "medium",
+          "reward": {
+            "stars": 3,
+            "badge": "fashion_guru"
+          }
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "theme": "food",
+      "name": "Île de la Nourriture",
+      "emoji": "🍎",
+      "description": "Découvre les fruits, légumes et plats en anglais.",
+      "color": "#8BC34A",
+      "unlocked": false,
+      "requirements": {
+        "minStars": 17,
+        "previousLevel": 5
+      },
+      "miniGames": [
+        {
+          "type": "categorization",
+          "title": "Classe les aliments",
+          "description": "Classe les aliments dans les bonnes catégories (fruits, légumes, etc.).",
+          "difficulty": "medium",
+          "reward": {
+            "stars": 3,
+            "badge": "food_chef"
+          }
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "theme": "actions",
+      "name": "Île des Actions",
+      "emoji": "🏃",
+      "description": "Apprends les verbes d'action en anglais.",
+      "color": "#FF5722",
+      "unlocked": false,
+      "requirements": {
+        "minStars": 20,
+        "previousLevel": 6
+      },
+      "miniGames": [
+        {
+          "type": "mime",
+          "title": "Devine l'action",
+          "description": "Regarde l'image et devine l'action en anglais.",
+          "difficulty": "hard",
+          "reward": {
+            "stars": 3,
+            "badge": "action_hero"
+          }
+        }
+      ]
+    }
+  ],
+  "badges": {
+    "animal_expert": {
+      "name": "Expert des Animaux",
+      "emoji": "🐾",
+      "description": "Tu as maîtrisé tous les animaux !"
+    },
+    "color_master": {
+      "name": "Maître des Couleurs",
+      "emoji": "🎨",
+      "description": "Tu connais toutes les couleurs par cœur !"
+    },
+    "math_genius": {
+      "name": "Génie des Maths",
+      "emoji": "🧮",
+      "description": "Tu comptes comme un pro !"
+    },
+    "sequence_pro": {
+      "name": "Pro des Séquences",
+      "emoji": "🔢",
+      "description": "Rien ne t'arrête en calcul mental !"
+    },
+    "family_expert": {
+      "name": "Expert de la Famille",
+      "emoji": "👨‍👩‍👧",
+      "description": "Tu connais toute la famille !"
+    },
+    "fashion_guru": {
+      "name": "Gourou de la Mode",
+      "emoji": "👗",
+      "description": "Tu as l'œil pour les vêtements !"
+    },
+    "food_chef": {
+      "name": "Chef Étoilé",
+      "emoji": "👨‍🍳",
+      "description": "Tu connais tous les aliments !"
+    },
+    "action_hero": {
+      "name": "Héros de l'Action",
+      "emoji": "🦸",
+      "description": "Tu maîtrises toutes les actions !"
+    }
+  }
+}
