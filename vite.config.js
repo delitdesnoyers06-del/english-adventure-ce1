@@ -69,7 +69,7 @@ export default defineConfig({
       },
     }),
   ],
-  base: './',
+  base: process.env.NODE_ENV === 'production' ? '/english-adventure-ce1/' : './',
   build: {
     outDir: 'dist',
     emptyOutDir: true,
