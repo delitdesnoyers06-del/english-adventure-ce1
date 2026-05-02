@@ -21,26 +21,26 @@
   // Sauvegarder l'état dans localStorage à chaque changement
   $: {
     if (typeof window !== 'undefined') {
-      const state = gameStore.subscribe(state => state);
-      localStorage.setItem('englishAdventureState', JSON.stringify($state));
+      const currentState = $gameStore;
+      localStorage.setItem('englishAdventureState', JSON.stringify(currentState));
     }
   }
 
-  $: currentScreen = gameStore.subscribe(state => state.currentScreen);
+  $: currentScreen = $gameStore.currentScreen;
 </script>
 
 <main>
-  {#if $currentScreen === 'home'}
+  {#if currentScreen === 'home'}
     <HomeScreen />
-  {:else if $currentScreen === 'map'}
+  {:else if currentScreen === 'map'}
     <MapScreen />
-  {:else if $currentScreen === 'level'}
+  {:else if currentScreen === 'level'}
     <LevelScreen />
-  {:else if $currentScreen === 'results'}
+  {:else if currentScreen === 'results'}
     <ResultsScreen />
-  {:else if $currentScreen === 'journal'}
+  {:else if currentScreen === 'journal'}
     <JournalScreen />
-  {:else if $currentScreen === 'about'}
+  {:else if currentScreen === 'about'}
     <AboutScreen />
   {/if}
 </main>
